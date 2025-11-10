@@ -12,17 +12,18 @@
 
 **Tagline:** Web2-like payment experiences for building Polkadot dApps
 
-Kitdot Payment Features Enhancement is a comprehensive payment development toolkit that empowers developers to build production-ready payment applications on Polkadot with Web2-like user experiences.
+We aim to expand kitdot templates to have a comprehensive toolkit that empowers developers to build production-ready applications on Polkadot with Web2-like payment experiences.
 
 **Brief Description:**
 
 Kitdot is a TypeScript development toolkit that helps developers build Polkadot dApps faster with ready-to-use templates. This grant proposal aims to enhance Kitdot with three critical milestones that address the biggest barriers to mainstream Web3 adoption:
 
-1. **Gasless Transactions** - Templates for gasless dApp interactions using account abstraction. Includes smart contracts and production-ready code developers can deploy.
+1. **Gasless Transactions System** – Templates for gasless dApp interactions using account abstraction. Includes smart contracts, base contracts, relay services, and deployable production code.
 
-2. **UX Improvements and X402 Payment Protocol** - Templates implementing x402 protocol for content and API monetization. Developers can use these to build paid services.
+2. **X402 Payment Protocol System** – Templates implementing the X402 protocol for content and API monetization. Include token contracts, facilitator services, and full paid API examples.
 
-3. **Ecosystem Integration** - Templates demonstrating DotConnect, ReactiveDot, Polkadot UI, and Dedot integration. Shows developers how these tools work together.
+3. **Ecosystem Collaboration & UX Refinement** – Templates and integrations demonstrating DotConnect, ReactiveDot, Polkadot UI, and Dedot working together. Includes partner coordination, UX improvements, and comprehensive documentation.
+
 
 **Why We're Creating This:**
 
@@ -62,6 +63,7 @@ We've conducted hands-on feasibility research for both payment features, testing
 Throughout development, we maintain close collaboration with key ecosystem partners to ensure seamless integration:
 - Worked with MetaMask DevRels to ensure Web3Auth compatibility with Passet Hub
 - We are going to reach out to DotConnect, ReactiveDot, Polkadot UI, and Dedot core developers to build frontends using their tools and resources.
+- We already have a channel of contact with thirdweb and we are going to reach out to Pimlico and Biconomy to discuss Asset Hub Integration on their infrastructure.
 
 ### Ecosystem Fit
 
@@ -138,8 +140,8 @@ Kitdot CLI v1.0 has demonstrated significant real-world impact:
 
 **Ecosystem Recognition:**
 - Invitation to support Sub0 Hackathon participants
-- Listed on Polkadot Ecosystem tools directory (https://polkadotecosystem.com/tools/dev/kitdot)
-- Ongoing collaboration with integrated tool developers (DotConnect, ReactiveDot, Polkadot UI, Dedot)
+- Project endorsed by many community members and KOLs.
+- Listed on Polkadot [Ecosystem tools directory](https://polkadotecosystem.com/tools/dev/kitdot)
 - See more on [this forum discussion](https://forum.polkadot.network/t/kitdot-build-web2-like-apps-on-polkadot/15303)
 
 
@@ -194,7 +196,7 @@ Our team has completed comprehensive feasibility research for both payment featu
 - **Total Estimated Duration:** 5 months
 - **Full-Time Equivalent (FTE):** 1.5 FTE
 - **Total Costs:** 30,000 USD (USDT or USDC)
-- **DOT %:** 0% (100% stablecoin payment in USDT or USDC)
+- **DOT %:** 0% (100% stablecoin payment in USDT/USDC/HOLLAR)
 
 ### Milestone 1 — Gasless Transactions System
 
@@ -207,8 +209,7 @@ Our team has completed comprehensive feasibility research for both payment featu
 | 1. | Simplified Forwarder Contract | Solidity smart contract implementing ERC-2771 forwarder pattern adapted for PolkaVM constraints. Features: EIP-712 signature verification, nonce management, deadline validation, and call forwarding with sender extraction. Optimized to avoid constructor storage operations. |
 | 2. | ERC2771Context Base Contract | Simplified recipient contract base that extracts real sender from forwarded calls. Enables existing contracts to support gasless transactions by inheriting this base. |
 | 3. | Relay Service (Gasless Module) | Node.js/TypeScript service that accepts signed meta-transactions, validates them off-chain, and submits to forwarder contract. Features: whitelist management (user/contract/function-based), gas estimation for PolkaVM, rate limiting, and monitoring. |
-| 4. | Sample Recipient Contracts | Example NFT and token contracts demonstrating gasless functionality. Shows how to inherit ERC2771Context and implement trusted forwarder pattern. |
-| 6. | Whitelist Strategy Templates | Production-ready whitelist implementations: user-based (specific addresses authorized), contract-based (specific target contracts), function-based (specific function selectors), and hybrid approach. Each with rate limiting and gas budgets. |
+| 4. | Whitelist Strategy Templates | Production-ready whitelist implementations: user-based (specific addresses authorized), contract-based (specific target contracts), function-based (specific function selectors), and hybrid approach. Each with rate limiting and gas budgets. |
 
 ### Milestone 2 — X402 Payment Protocol System
 
@@ -220,9 +221,8 @@ Our team has completed comprehensive feasibility research for both payment featu
 | -----: | ----------- | ------------- |
 | 1. | USDT Wrapper Token Contract | Custom USDT implementation with full EIP-3009 support optimized for PolkaVM. Features: transferWithAuthorization, receiveWithAuthorization, signature-based transfers, nonce management, time-bound authorizations. Based on USDT0/txfusion patterns adapted for constructor constraints. |
 | 2. | Self-Hosted Facilitator (X402 Module) | Payment processor service that validates X402 payments, verifies EIP-3009 signatures, and submits transactions to Passet Hub. Adapted for PolkaVM's multi-dimensional resource metering. Features: payment verification API, blockchain settlement, confirmation tracking, and replay protection. |
-| 3. | Payment Escrow Contract | Smart contract for time-locked payments with dispute resolution. Allows merchants to lock payments until service delivery with configurable timeouts and refund mechanisms. |
-| 4. | HTTP 402 Server | Express/Fastify middleware implementing X402 challenge-response flow. Issues HTTP 402 challenges with payment details, verifies payment proofs via facilitator, and delivers resources upon confirmation. |
-| 5. | Kitdot Template: X402 Paid API | Complete template for monetizing APIs with X402 payments. Includes: Express API server with 402 middleware, React frontend with payment handling, USDT Wrapper token contracts, facilitator configuration, and example paid endpoints (content access, data queries, AI agent integration). |
+| 3. | HTTP 402 Server | Express/Fastify middleware implementing X402 challenge-response flow. Issues HTTP 402 challenges with payment details, verifies payment proofs via facilitator, and delivers resources upon confirmation. |
+| 4. | Kitdot Template: X402 Paid API | Complete template for monetizing APIs with X402 payments. Includes: Express API server with 402 middleware, React frontend with payment handling, USDT Wrapper token contracts, facilitator configuration, and example paid endpoints (content access, data queries, AI agent integration). |
 
 ### Milestone 3 — Ecosystem Collaboration & UX Refinement
 
